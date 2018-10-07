@@ -1,6 +1,6 @@
 * {margin: 0;
 padding: 0;
-color: #26dafd;
+
 font-family: electrolize, sans-serif}
 
 /* #000000 black
@@ -34,35 +34,54 @@ font-family: electrolize, sans-serif}
 body {
   /* background-image: url("wallpaper.jpg"); */
   background-image: url("background.jpg");
-  background-size: cover
+  color: #26dafd;
+}
+
+h4 {
+  color: #ff0000
 }
 
 button {
   background-color: transparent;
   width: 10vw;
   margin: 0px 5vw;
+  color: #26dafd;
+  transition: .5s;
+  background-color: #ff0000;
+  border-color: #26dafd;
+  border-radius: 25%;
+  color: white;
 }
 
-.incoming {
+button:hover {
+  background-color:#00ff00;
+  color: white;
+  border-color: white;
+}
+
+#incoming {
   color: #ff0000;
+  text-decoration-line: underline overline;
+  text-decoration-style: double;
+  margin: 0px 0px 2vh 0px
+  
 }
 
 .fullpage {
   display: flex;
   flex-direction: row;
-  text-align: center
 }
 
 .threatbox {
   height: 80vh;
-  width: 50vw;
-  margin: 5vw 0px 5vw 5vw;
+  width: 60vw;
+  margin: 5vw 0px 5vw 3vw;
   background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-size: 2em;
-
+  text-decoration-line: underline;
 }
 
 .trackbox {
@@ -76,7 +95,6 @@ button {
 .coords {
   display: flex;
   flex-direction: row;
-  align-self: center;
 }
 
 .buttons {
@@ -84,7 +102,22 @@ button {
   justify-content: space-between;
   height: 10vh;
   width: 100%;
-  margin: 5vw 0px 0px 0px
+  margin: 5vw 0px 0px 0px;
 }
 
+.tracking {
+  color: #00ff00;
+  transition: .5s;
+}
 
+.tracking:hover{
+  font-size: 1.05em
+}
+.tracktitle {
+  text-decoration-line: underline
+}
+.data {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}

@@ -20,12 +20,12 @@ class Tracklist extends Component {
     render(){
 
         let favorites = this.props.tracking.map((e, i) =>(
-            <div key={i} onClick={()=>this.props.delete(i)}>
+            <div key={i} className="tracking" onClick={()=>this.props.delete(i)}>
             <h3>{e}</h3>
             </div>
         ))
         return(<div>
-            <h3>Tracking:</h3>
+            <h3 className="tracktitle">Tracking:</h3>
             <div>{favorites}</div>
             </div>
 

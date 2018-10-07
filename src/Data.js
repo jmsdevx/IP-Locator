@@ -123,14 +123,11 @@ render(){
     <div className = "fullpage">
 
         <div className="threatbox">
-            <h3 className="incoming">INCOMING THREATS</h3>
-            <div>IP: {location.ipv4}</div>
-            <div>Region: {location.continent_name}</div>
-            <div>Country: {location.country_name}</div>
-            <div className="coords">
-                <div>Coordinates: ({Math.floor(location.latitude)}</div>
-                <div>, {Math.floor(location.longitude)})</div>
-            </div>
+            <h2 id="incoming">INCOMING ATTACK</h2>
+            <div className="data"><h4>IP:</h4> {location.ipv4}</div>
+            <div className="data"><h4>Region:</h4>{location.continent_name}</div>
+            <div className="data"><h4>Country:</h4> {location.country_name}</div>
+            <div className="coords"><h4>Coords  :</h4>({Math.floor(location.latitude)},{Math.floor(location.longitude)})</div>
             <div className="buttons">
                 <button onClick={() => this.addFavorite()}>Track IP</button>
                 <button onClick={() => this.newLocation()}>Next</button>
