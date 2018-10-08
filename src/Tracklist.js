@@ -1,44 +1,23 @@
 import React, {Component} from 'react'
 
+
 class Tracklist extends Component {
-
-    
-
-//     this.state = {
-//         favoriteList: [],
-//     }
-// }
-    
-    // componentDidMount(){
-    //     axios.get('api/ip')
-    //     .then(response => {this.setState({favoriteList: response.data})
-    //     console.log("FL: " + this.state.favoriteList)})
-    //     .catch(error => console.log(error));
-
-    // }
 
     render(){
 
         let favorites = this.props.tracking.map((e, i) =>(
-            <div key={i} className="tracking" onClick={()=>this.props.delete(i)}>
-            <h3>{e}</h3>
+            <div key={i} className="tracking">
+            <div id="trackbar">{e}<div id="trackbuttons"><button id="editbutton" onClick={()=>this.props.edit(i, this.props.input)}>Edit</button>
+            <button id="deletebutton" onClick={()=>this.props.delete(i)}>Delete</button></div></div>
             </div>
         ))
-        return(<div>
-            <h3 className="tracktitle">Tracking:</h3>
+        return(<div id="undermap">
+              <h2 className="tracktitle">Tracking  :<input type="text" placeholder="edit IP" onChange={(e)=>this.props.handler(e.target.value)}/></h2>
             <div>{favorites}</div>
             </div>
 
-
-
-
         )
     }
-
-
-
-
-
 
 }
 

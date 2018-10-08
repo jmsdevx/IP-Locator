@@ -1,13 +1,23 @@
 const axios = require('axios')
 let favorites = []
 let myLocations = []
-
-
+let myGenre = []
+let myLogo = []
 
 const deleteFavorite=(req, res) => {
     console.log(favorites.splice(req.params.i, 1))
     console.log(favorites)
     res.status(200).json(favorites)
+}
+
+const editFavorite=(req, res) => {
+    if (req.body.value!==''){
+    favorites.splice(req.params.i, 1, req.body.value)
+    console.log(favorites)
+    res.status(200).json(favorites)}
+    else {
+        res.status(200).json(favorites)
+    }
 }
 
 const getLocation = (req, res) => {
@@ -35,12 +45,30 @@ const addFavorite = (req, res) => {
     res.status(200).json(favorites)
 }
 
+const getGenre = (req, res) => {
+    axios.get(`https://binaryjazz.us/wp-json/genrenator/v1/genre/`)
+    .then( response => {
+        myGenre = (response.data)
+        res.status(200).json(myGenre)
+    })
+    .catch(error => {
+        console.log(error)
+        res.status(500)
+    })
+}
 
-// function postIP(req, res){
-//     myPosts.push(req.body.input)
-//     console.log(req.body.input)
-//     res.status(200).send(myLocations)
+const getLogo = (req, res) => {
+    axios.get('http://numbersapi.com/random/math')
+    .then( response => {
+        myLogo = (response.data)
+        res.status(200).json(myLogo)
+    } )
+    .catch(error=>{
+        console.log(error)
+        res.status(500)
+    })
+}
 
-// }
 
-module.exports = {getLocation, getFavorites, addFavorite, deleteFavorite}
+
+module.exports = {getLocation, getFavorites, addFavorite, deleteFavorite, getGenre, getLogo, editFavorite}

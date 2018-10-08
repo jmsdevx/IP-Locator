@@ -6,6 +6,9 @@ const {getLocation} = require('./ipcontroller')
 const {getFavorites} = require('./ipcontroller')
 const {addFavorite} = require('./ipcontroller')
 const {deleteFavorite} = require('./ipcontroller')
+const {getGenre} = require('./ipcontroller')
+const {getLogo} = require('./ipcontroller')
+const {editFavorite} = require('./ipcontroller')
 const app = express()
 const port = 3006
 
@@ -14,14 +17,15 @@ const port = 3006
 app.use(json());
 app.use(cors());
 
-// app.get('/api/iplocation', (req, res)=> {
-//     res.status(200).json('this is working')
-// })
 
 app.get('/api/ip/location', getLocation)
 app.get('/api/ip', getFavorites)
+app.get('/api/ip/genre', getGenre)
+app.get('/api/ip/logo', getLogo)
 app.post('/api/ip', addFavorite)
 app.delete('/api/ip/:i', deleteFavorite)
+app.put('/api/ip/:i', editFavorite)
+
 
 
 
